@@ -1,0 +1,19 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hellojob
+spec:
+  template:
+    metadata:
+      name: job
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: jobpod
+          image: nginx
+          ports:
+            - containerPort: 80
+          command:
+            - sleep
+            - 10s
